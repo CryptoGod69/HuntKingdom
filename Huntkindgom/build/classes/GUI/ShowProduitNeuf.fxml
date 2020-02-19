@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="403.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ShowProduitNeufController">
+   <children>
+      <TableView fx:id="TableProduitNeuf" prefHeight="400.0" prefWidth="526.0">
+        <columns>
+          <TableColumn fx:id="idColonne" prefWidth="63.0" text="ID" />
+          <TableColumn fx:id="refColonne" prefWidth="77.0" text="REFERENCE" />
+            <TableColumn fx:id="nomColonne" prefWidth="64.0" text="NOM" />
+            <TableColumn fx:id="ctgColonne" prefWidth="104.0" text="DESCRIPTION" />
+            <TableColumn fx:id="descColonne" prefWidth="93.0" text="CATEGORIE" />
+            <TableColumn fx:id="prixColonne" prefWidth="68.0" text="PRIX" />
+            <TableColumn fx:id="qteColonne" prefWidth="56.0" text="QTE" />
+        </columns>
+      </TableView>
+      <Button fx:id="ajouterBouton" layoutX="559.0" layoutY="54.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="25.0" prefWidth="72.0" text="ADD" />
+      <Button fx:id="supprimerBouton" layoutX="560.0" layoutY="100.0" mnemonicParsing="false" onAction="#Supprimer" prefHeight="25.0" prefWidth="72.0" text="DELETE" />
+      <Button fx:id="modifierBouton" layoutX="560.0" layoutY="143.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="25.0" prefWidth="72.0" text="EDIT" />
+   </children>
+</AnchorPane>

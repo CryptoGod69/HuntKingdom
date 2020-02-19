@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="GUI.DeleteCommandeController">
+   <children>
+      <TableView fx:id="tableCommandeId" prefHeight="406.0" prefWidth="452.0">
+         <columns>
+            <TableColumn fx:id="idColumn" prefWidth="96.0" text="ID COMMANDE" />
+            <TableColumn fx:id="clientColumn" prefWidth="75.0" text="ID CLIENT" />
+            <TableColumn fx:id="produitColumn" prefWidth="112.0" text="ID PRODUIT NEUF" />
+            <TableColumn fx:id="dateColumn" prefWidth="53.0" text="DATE" />
+            <TableColumn fx:id="totalColumn" prefWidth="53.0" text="TOTAL" />
+            <TableColumn fx:id="etatColumn" prefWidth="61.0" text="ETAT" />
+         </columns>
+      </TableView>
+      <Button fx:id="searchButton" layoutX="498.0" layoutY="60.0" mnemonicParsing="false" onAction="#Chercher" prefHeight="25.0" prefWidth="55.0" text="Search" />
+      <TextField fx:id="searchField" layoutX="453.0" layoutY="26.0" prefHeight="25.0" prefWidth="145.0" text="Search ..." />
+      <Button fx:id="deleteButton" layoutX="502.0" layoutY="357.0" mnemonicParsing="false" onAction="#Delete" text="DELETE" />
+   </children>
+</AnchorPane>
