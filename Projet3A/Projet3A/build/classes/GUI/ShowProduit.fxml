@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ShowProduitController">
    <children>
-      <TableView fx:id="ListeProduit" prefHeight="394.0" prefWidth="444.0">
-        <columns>
-            <TableColumn fx:id="ReferenceColumn" prefWidth="75.0" text="Reference" />
-          <TableColumn fx:id="NomColumn" prefWidth="75.0" text="Nom" />
-            <TableColumn fx:id="CategorieColumn" prefWidth="75.0" text="Catégorie" />
-            <TableColumn fx:id="DesciptionColumn" prefWidth="75.0" text="Description" />
-            <TableColumn fx:id="PrixColumn" prefWidth="75.0" text="Prix" />
-            <TableColumn fx:id="nb_ProduitColumn" prefWidth="68.0" text="nb_Produits" />
-        </columns>
-      </TableView>
       <Button fx:id="ButtonShow" layoutX="462.0" layoutY="144.0" mnemonicParsing="false" onAction="#Show" prefHeight="25.0" prefWidth="73.0" text="Show" />
       <Button fx:id="ButtonAdd" layoutX="462.0" layoutY="188.0" mnemonicParsing="false" onAction="#Add" prefHeight="25.0" prefWidth="73.0" text="Add" />
       <Button fx:id="ButtonDelete" layoutX="461.0" layoutY="234.0" mnemonicParsing="false" onAction="#Delete" prefHeight="25.0" prefWidth="73.0" text="Delete" />
       <Button fx:id="ButtonEdit" layoutX="462.0" layoutY="279.0" mnemonicParsing="false" onAction="#Edit" prefHeight="25.0" prefWidth="73.0" text="Edit" />
       <TextField fx:id="search" layoutX="449.0" layoutY="14.0" promptText="Search . . ." />
       <Button fx:id="searchButton" layoutX="534.0" layoutY="49.0" mnemonicParsing="false" onAction="#Recherche" text="Search" />
+      <ListView fx:id="ListeProduit" prefHeight="400.0" prefWidth="442.0" />
+      <Button fx:id="AddRDVButton" layoutX="462.0" layoutY="323.0" mnemonicParsing="false" onAction="#AddRDV" prefHeight="25.0" prefWidth="73.0" text="Add RDV" />
+      <Button fx:id="statButton" layoutX="462.0" layoutY="102.0" mnemonicParsing="false" onAction="#Stat" text="Statistique" />
+      <Button fx:id="myRDVButton" layoutX="462.0" layoutY="361.0" mnemonicParsing="false" onAction="#ShowMyRDV" prefHeight="25.0" prefWidth="73.0" text="ShowAll RDV" />
    </children>
 </AnchorPane>

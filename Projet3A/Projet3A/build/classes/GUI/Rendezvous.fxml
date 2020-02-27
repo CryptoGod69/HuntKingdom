@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RendezvousListeController">
+   <children>
+      <Label layoutX="32.0" layoutY="83.0" text="Acheteur" />
+      <Label fx:id="LabelAcheteur" layoutX="150.0" layoutY="83.0" text="Label" />
+      <Label layoutX="357.0" layoutY="84.0" text="Date" />
+      <Label layoutX="358.0" layoutY="209.0" text="Lieu" />
+      <Label fx:id="LabelDate" layoutX="477.0" layoutY="83.0" text="Label" />
+      <Label fx:id="LabelHeure" layoutX="478.0" layoutY="147.0" text="Label" />
+      <Label layoutX="34.0" layoutY="147.0" text="Vendeur" />
+      <Label fx:id="LabelVendeur" layoutX="150.0" layoutY="147.0" text="Label" />
+      <Label layoutX="356.0" layoutY="148.0" text="Heure" />
+      <Label fx:id="LabelLieu" layoutX="479.0" layoutY="210.0" text="Label" />
+      <Label layoutX="33.0" layoutY="209.0" text="Numéro " />
+      <Label fx:id="LabelNum" layoutX="150.0" layoutY="209.0" text="Label" />
+      <Button fx:id="RetourButton" layoutX="518.0" layoutY="36.0" mnemonicParsing="false" onAction="#Cancel" text="Retour" />
+   </children>
+</AnchorPane>

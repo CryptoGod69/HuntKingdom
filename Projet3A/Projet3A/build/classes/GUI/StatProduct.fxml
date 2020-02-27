@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.StatProductController">
+   <children>
+      <BarChart fx:id="statChart" layoutX="7.0" prefHeight="400.0" prefWidth="500.0" title="Produit d'occasions ">
+        <xAxis>
+          <CategoryAxis fx:id="productAxis" label="productAxis" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="percentAxis" side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Button layoutX="520.0" layoutY="343.0" mnemonicParsing="false" onAction="#cancel" text="Retour" />
+   </children>
+</AnchorPane>

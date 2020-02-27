@@ -34,7 +34,7 @@ public class ProduitsService {
      private Statement ste;
      
      public void ajouterProduit(Produits prod) throws SQLException{
-        String requete = "insert into produits (reference,nom,categorie,description,prix,nbProduits) values ('"+prod.getRef()+"','"+prod.getNom()+"','"+prod.getCategorie()+"','"+prod.getDescription()+"','"+prod.getPrix()+"','"+prod.getnb_produit()+"')";
+        String requete = "insert into produits (Proprietaire,nom,categorie,description,prix,nbProduits) values ('"+prod.getProprietaire()+"','"+prod.getNom()+"','"+prod.getCategorie()+"','"+prod.getDescription()+"','"+prod.getPrix()+"','"+prod.getnb_produit()+"')";
         try{
             Statement st = cnx.createStatement();
             st.executeUpdate(requete);
@@ -52,12 +52,13 @@ public class ProduitsService {
             ResultSet rs = st.executeQuery(requete);
             while(rs.next()) {
                 Produits p = new Produits();
-                p.setReference(rs.getInt(1));
-                p.setNom(rs.getString(2));
-                p.setCategorie(rs.getString(3));
-                p.setDescription(rs.getString(4));
-                 p.setPrix(rs.getFloat(5));
-                 p.setNb_produit(rs.getInt(6));
+                p.setProprietaire(rs.getString("Proprietaire"));
+                p.setReference(rs.getInt("reference"));
+                p.setNom(rs.getString("nom"));
+                p.setCategorie(rs.getString("categorie"));
+                p.setDescription(rs.getString("description"));
+                 p.setPrix(rs.getFloat("prix"));
+                 p.setNb_produit(rs.getInt("nbProduits"));
                 liste.add(p);
             }
         } catch (SQLException ex) {
@@ -83,12 +84,12 @@ public class ProduitsService {
             ResultSet rs = st.executeQuery(requete);
             while(rs.next()) {
                 Produits p = new Produits();
-                p.setReference(rs.getInt(1));
-                p.setNom(rs.getString(2));
-                p.setCategorie(rs.getString("categorie"));
-                p.setDescription(rs.getString("description"));
-                 p.setPrix(rs.getFloat(1));
-                 p.setNb_produit(rs.getInt(1));
+                p.setReference(rs.getInt(2));
+                p.setNom(rs.getString(3));
+                p.setCategorie(rs.getString(4));
+                p.setDescription(rs.getString(5));
+                 p.setPrix(rs.getFloat(6));
+                 p.setNb_produit(rs.getInt(7));
                 liste.add(p);
             }
         } catch (SQLException ex) {
@@ -117,8 +118,29 @@ public class ProduitsService {
             Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
         } 
      } */
-    
-     public void update (int ref,String nom,String categorie,String desc,int prix,int nb_prod)
+   public ObservableList<Produits> rechercheByNom(String nom){
+               ObservableList<Produits> liste = FXCollections.observableArrayList();
+        String requete = "select * from produits where Proprietaire="+(char)34+nom+(char)34;
+        try {
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while(rs.next()) {
+                Produits p = new Produits();
+                p.setProprietaire(rs.getString("Proprietaire"));
+                p.setReference(rs.getInt("reference"));
+                p.setNom(rs.getString("nom"));
+                p.setCategorie(rs.getString("categorie"));
+                p.setDescription(rs.getString("description"));
+                 p.setPrix(rs.getFloat("prix"));
+                 p.setNb_produit(rs.getInt("nbProduits"));
+                liste.add(p);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return liste;
+    } 
+     public void update (String nomClient,int ref,String nom,String categorie,String desc,int prix,int nb_prod)
      {
              String requete="UPDATE produits SET nom='"+nom+"',categorie='"+categorie+"',description='"+desc+"',prix='"+prix+"',nbProduits='"+nb_prod+"' WHERE reference="+ref;
          try{
@@ -129,9 +151,9 @@ public class ProduitsService {
             Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
         }
      }
-     public void rechercheByNom (String nom)
+  /*  public void rechercheByNom (String nom)
      {
-        String requete = "SELECT * FROM produits WHERE nom='"+nom+"'";
+        String requete = "SELECT * FROM produits WHERE Proprietaire='"+nom+"'";
         try{
             Statement st = cnx.createStatement();
             res = st.executeQuery(requete);
@@ -149,11 +171,11 @@ public class ProduitsService {
         } catch (SQLException ex) {
             Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
         } 
-     }
+     } */
     
-    /* public void update (int ref,String nom,String categorie,String desc,int prix,int nb_prod)
+    public void update (int ref,String nomClient,String nom,String categorie,String desc,int prix,int nb_prod)
      {
-             String requete="UPDATE produits SET nom='"+nom+"',categorie='"+categorie+"',description='"+desc+"',prix='"+prix+"',nbProduits='"+nb_prod+"' WHERE reference="+ref;
+             String requete="UPDATE produits SET Proprietaire='"+nomClient+"', nom='"+nom+"',categorie='"+categorie+"',description='"+desc+"',prix='"+prix+"',nbProduits='"+nb_prod+"' WHERE reference="+ref;
          try{
             Statement st = cnx.createStatement();
             st.executeUpdate(requete);
@@ -161,8 +183,7 @@ public class ProduitsService {
         } catch (SQLException ex) {
             Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
         }
-     } */
-
+     } 
  /*public List<Produits> getTrier() throws SQLException {
     List<Produits> arr=new ArrayList<>();
     ResultSet rs=ste.executeQuery("select * from produits ORDER BY reference DESC");
@@ -180,7 +201,7 @@ public class ProduitsService {
      }
     return arr;
     }*/
-     public List<Produits> getTrier() throws SQLException {
+  /*   public List<Produits> getTrier() throws SQLException {
     List<Produits> arr=new ArrayList<>();
     String requete="select * from produits ORDER BY reference DESC";
     try{
@@ -205,5 +226,5 @@ public class ProduitsService {
             Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
         } 
      return arr;
-}
+} */
 }

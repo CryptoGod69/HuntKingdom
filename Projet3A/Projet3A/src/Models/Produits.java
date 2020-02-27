@@ -11,12 +11,12 @@ package Models;
  */
 public class Produits {
     private int reference;
-    private String nom,categorie,description;
+    private String nom,categorie,description,proprietaire;
     private float prix;
     private int nbProduits;
     
     public Produits()
-    {
+    {   this.proprietaire="";
         this.reference=0;
         this.nom="";
         this.categorie="";
@@ -24,14 +24,35 @@ public class Produits {
         this.prix=0;
         this.nbProduits=0;
     }
-    public Produits(int ref,String nom,String categorie,String description,float prix,int nbProduit)
+    public Produits(String proprietaire,String nom,String categorie,String description,float prix,int nbProduit)
     {
-        this.reference=ref;
+        this.proprietaire=proprietaire;
+        this.reference=0;
         this.nom=nom;
         this.categorie=categorie;
         this.description=description;
         this.prix=prix;
         this.nbProduits=nbProduit;
+    }
+
+    public int getReference() {
+        return reference;
+    }
+
+    public void setProprietaire(String proprietaire) {
+        this.proprietaire = proprietaire;
+    }
+
+    public void setNbProduits(int nbProduits) {
+        this.nbProduits = nbProduits;
+    }
+
+    public String getProprietaire() {
+        return proprietaire;
+    }
+
+    public int getNbProduits() {
+        return nbProduits;
     }
 
     
@@ -88,7 +109,7 @@ public class Produits {
 
     @Override
     public String toString() {
-        return "Produits{" + "reference=" + reference + ", nom=" + nom + ", categorie=" + categorie + ", prix=" + prix + ", nbProduits=" + nbProduits + '}';
+        return "Produits{" + " nom=" + nom + ", categorie=" + categorie + ", prix=" + prix + ", nbProduits=" + nbProduits + '}';
     }
 
     

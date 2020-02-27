@@ -5,7 +5,10 @@
  */
 package GUI;
 
+import Models.Produits;
+import Models.User;
 import java.io.IOException;
+import java.sql.Date;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -24,6 +27,9 @@ public class MainProgram extends Application {
     
     @Override
     public void start(Stage primaryStage) throws IOException {
+        User user = new User(759,"muftox", "mufti", "1 Rue de la paix", "ahmed.mouhamed@gmail.com", "71123123", "Admin" , new Date(30,12,1998));
+         Produits p = new Produits ("client Vendeur", "pr", "pr","ce porduit est .. ",220,20);
+        ShowProduitController.user = user;
         Parent root = FXMLLoader.load(getClass().getResource("ShowProduit.fxml"));
         Scene scene = new Scene(root);
         
